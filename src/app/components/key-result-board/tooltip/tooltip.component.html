@@ -1,7 +1,6 @@
 
 <ng-container *ngFor="let item of data">
-  <h2 class="pl-2">Period of {{item.period}}</h2>
-  <hr>
+  <h2 class="pl-2 bg-gray-200 py-1">Period of <strong>{{item.period}}</strong></h2>
   <table class="min-w-full">
     <thead class="border-b">
       <tr>
@@ -26,19 +25,18 @@
         </td>
         <td class="text-md text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
           {{this.formatNumberService.formatNumber(item.change.numeric)}} ({{item.change.percentage}}%)
-
-
         </td>
       </tr>
     </tbody>
   </table>
-  <div class="flex items-center space-x-2 pl-3 py-2">
+
+  <div class="flex items-center space-x-2 pl-3 py-2 border-b-2">
     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
       <circle id="Ellipse_1" data-name="Ellipse 1" cx="6" cy="6" r="6" fill="#7fcb3d" />
     </svg>
     <p>On Track</p>
   </div>
-  <hr>
+
   <div class="pl-3 py-2">
     <a href="" class="flex space-x-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"

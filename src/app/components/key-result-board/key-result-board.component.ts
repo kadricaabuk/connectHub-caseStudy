@@ -22,9 +22,18 @@ export class KeyResultBoardComponent implements OnInit {
 
 
   countAvatar(arr: any) {
-    return arr.length > 2 ? false : true;
+    return arr.length > 3 ? false : true;
   }
 
-
+   //DROPDOWN ÜZERİNDEKİ BAŞLIĞI DEĞİŞTİREN FONKSİYON
+   public choosenTimeFilter : string = 'All Times';
+   changeTimeFilter(arg : string) {
+     this.choosenTimeFilter = arg;
+   }
+    //DROPDOWN ÜZERİNDEKİ BAŞLIĞI DEĞİŞTİREN FONKSİYON
+  public choosenFilter : string = 'Completed';
+  changeFilter(arg : string) {
+    this.choosenFilter = arg;
+  }
 
 }

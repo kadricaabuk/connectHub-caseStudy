@@ -6,6 +6,7 @@ module.exports = {
   ],
     extend: {
       colors: {
+        'orange-100' : '#FFF5F1',
         'orange-200' : '#FCDBCB',
         'orange-300' : '#FBCDB8',
         'orange-500' : '#EC6F3B',
