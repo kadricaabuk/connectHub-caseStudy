@@ -1,0 +1,123 @@
+
+<div class="widget align-middle border-b-2 shadow-md">
+  <div class="flex justify-between">
+      <div class="flex justify-between py-2 px-2 mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="62" height="50" viewBox="0 0 62 50">
+              <g id="Group_1" data-name="Group 1" transform="translate(-107.5 -271.5)">
+                <path id="Rectangle_1" data-name="Rectangle 1" d="M6,0H21a0,0,0,0,1,0,0V15a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V6A6,6,0,0,1,6,0Z" transform="translate(109 273)" fill="none" stroke="#df5650" stroke-width="4"/>
+                <rect id="Rectangle_6" data-name="Rectangle 6" width="21" height="16" transform="translate(109 288)" fill="none" stroke="#df5650" stroke-width="4"/>
+                <path id="Rectangle_7" data-name="Rectangle 7" d="M0,0H21a0,0,0,0,1,0,0V16a0,0,0,0,1,0,0H6a6,6,0,0,1-6-6V0A0,0,0,0,1,0,0Z" transform="translate(109 304)" fill="none" stroke="#df5650" stroke-width="4"/>
+                <path id="Rectangle_4" data-name="Rectangle 4" d="M0,0H32a6,6,0,0,1,6,6v9a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(130 273)" fill="none" stroke="#df5650" stroke-width="4"/>
+                <rect id="Rectangle_5" data-name="Rectangle 5" width="38" height="16" transform="translate(130 288)" fill="none" stroke="#df5650" stroke-width="4"/>
+                <path id="Rectangle_8" data-name="Rectangle 8" d="M0,0H38a0,0,0,0,1,0,0V10a6,6,0,0,1-6,6H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(130 304)" fill="none" stroke="#df5650" stroke-width="4"/>
+              </g>
+            </svg>
+          <h2 class="bg-white text-black font-bold py-2 px-4 rounded inline-flex items-center text-2xl">Key Result Board</h2>
+      </div>
+      <div class="flex justify-between py-2 px-2 items-center">
+          <p class="text-sm text-gray-400 mr-5">Time <strong class="ml-1 text-sm text-gray-700">All times</strong></p>
+          <p class="text-sm text-gray-400 mr-5">Filter <strong class="ml-1 text-sm text-gray-700">Completed</strong></p>
+          <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.96 122.88" width="8px">
+              <defs>
+                  <style>
+                      .cls-1 {
+                          fill-rule: evenodd;
+                      }
+                  </style>
+              </defs>
+              <title>3-vertical-dots</title>
+              <path class="cls-1"
+                  d="M15,0A15,15,0,1,1,0,15,15,15,0,0,1,15,0Zm0,92.93a15,15,0,1,1-15,15,15,15,0,0,1,15-15Zm0-46.47a15,15,0,1,1-15,15,15,15,0,0,1,15-15Z" />
+          </svg>
+      </div>
+  </div>
+  <div class="flex flex-col">
+      <div class="px-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="overflow-hidden">
+            <table class="min-w-full">
+              <thead class="border-b">
+                <tr>
+                  <th scope="col" class="text-sm font-md text-gray-400 px-6 py-2 text-left">
+                    Key Result
+                  </th>
+                  <th scope="col" class="text-sm font-md text-gray-400 px-6 py-2 text-left">
+                    Start
+                  </th>
+                  <th scope="col" class="text-sm font-md text-gray-400 px-6 py-2 text-left">
+                    Target
+                  </th>
+                  <th scope="col" class="text-sm font-md text-gray-400 px-6 py-2 text-left">
+                    Current
+                  </th>
+                  <th scope="col" class="text-sm font-md text-gray-400 px-6 py-2 text-left">
+                      Check-in Progress
+                  </th>
+                  <th scope="col" class="text-sm font-md text-gray-400 px-6 py-2 text-left">
+                      Owners
+                  </th>
+                  <th scope="col" class="text-sm font-md text-gray-400 px-6 py-2 text-left">
+                      Last Check-in
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <ng-container *ngFor="let item of this.array.data">
+
+                <tr class="border-b-2">
+                  <td class="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">{{item.key_result}}</td>
+                  <td class="text-md text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
+                    {{this.formatNumberService.formatNumber(item.start)}}
+                  </td>
+                  <td class="text-md text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
+                    {{this.formatNumberService.formatNumber(item.target)}}
+                  </td>
+                  <td class="text-md text-gray-900 font-medium px-6 py-4 whitespace-nowrap"  >
+                    <div class="flex items-center">
+                    <svg class="mr-2" ngClass="{{item.checkin_progress.slice().reverse()[0].this_week.numeric < 20 ? 'text-red-500' : item.checkin_progress.slice().reverse()[0].this_week.numeric > 70 ? 'text-orange-300' : 'text-green'}}" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                      <rect id="Rectangle_9" data-name="Rectangle 9" width="20" height="20" rx="3" fill="currentColor"/>
+                    </svg>
+                    {{this.formatNumberService.formatNumber(item.checkin_progress.slice().reverse()[0].this_week.numeric)}}
+                  </div>
+                  </td>
+                  <td class="text-md text-gray-900 font-medium py-4 whitespace-nowrap ">
+                      <div class="overflow-x-scroll space-x-2 py-2 w-11/12">
+                        <ng-container *ngFor="let item1 of item.checkin_progress">
+                          <span class=" py-1 px-3 rounded-lg greenSpan" ngClass="{{item1.this_week.numeric < 20 ? 'bg-red-500' : item1.this_week.numeric > 70 ? 'bg-orange-300' : 'bg-green'}}">
+                              {{this.formatNumberService.formatNumber(item1.this_week.numeric)}}
+                          </span>
+                          <div #tooltipContainer  class="bg-white p-2 rounded-lg shadow-md absolute tooltip hidden">
+                            <app-tooltip [data]="item1" #tooltip></app-tooltip>
+                          </div>
+                        </ng-container>
+
+                      </div>
+                  </td>
+
+                  <td class="text-md text-gray-900 font-medium px-6 whitespace-nowrap">
+
+                      <div class="flex overflow-hidden" id="avatar-container" >
+                        <ng-container *ngFor="let item2 of item.owners" >
+                          <img *ngIf="this.countAvatar(item.owners)" class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src={{item2.avatar}} alt="">
+                        </ng-container>
+
+                        <ng-container *ngIf="this.countAvatar(item.owners) === false">
+                        <img  class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src={{item.owners[0].avatar}} alt="">
+                          <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src={{item.owners[1].avatar}} alt="">
+                          <p class="ml-2">+{{item.owners.length-2}}</p>
+                        </ng-container >
+                      </div>
+                  </td>
+                  <td class="text-md text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
+                      {{this.formatNumberService.formatNumber(item.checkin_progress.slice().reverse()[0].this_week.numeric)}}->{{this.formatNumberService.formatNumber(item.checkin_progress.slice().reverse()[1].this_week.numeric)}}
+                  </td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
