@@ -1,0 +1,8 @@
+.greenSpan:hover + .tooltip {
+  display: block !important;
+}
+
+.tooltip:hover {
+  display: block !important;
+}
+
